@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Prompt Enhancer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="popup-logo">
+        <div class="logo-icon">✨</div>
+        <div class="logo-text">
+          <div class="logo-title">AI Prompt Enhancer</div>
+          <div class="logo-subtitle">Universal prompt optimization</div>
+        </div>
+      </div>
+      <div class="popup-version">v1.0.0</div>
+    </div>
+
+    <!-- Status Section -->
+    <div class="popup-status">
+      <div class="status-item">
+        <div class="status-icon" id="status-icon">●</div>
+        <div class="status-text">
+          <div class="status-label">Extension Status</div>
+          <div class="status-value" id="status-value">Loading...</div>
+        </div>
+        <div class="status-toggle">
+          <input type="checkbox" id="extension-toggle" class="toggle-switch">
+          <label for="extension-toggle" class="toggle-label"></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform Info -->
+    <div class="popup-platform" id="platform-info">
+      <div class="platform-item">
+        <div class="platform-icon" id="platform-icon">🌐</div>
+        <div class="platform-text">
+          <div class="platform-label">Current Platform</div>
+          <div class="platform-value" id="platform-value">Detecting...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="popup-stats">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value" id="suggestions-count">0</div>
+          <div class="stat-label">Suggestions</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="enhancements-count">0</div>
+          <div class="stat-label">Enhanced</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="templates-count">0</div>
+          <div class="stat-label">Templates</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="popup-actions">
+      <button class="action-button primary" id="enhance-current">
+        <span class="action-icon">⚡</span>
+        <span class="action-text">Enhance Current Prompt</span>
+      </button>
+      
+      <button class="action-button secondary" id="open-templates">
+        <span class="action-icon">📝</span>
+        <span class="action-text">Browse Templates</span>
+      </button>
+      
+      <button class="action-button secondary" id="open-panel">
+        <span class="action-icon">🔧</span>
+        <span class="action-text">Open Enhancement Panel</span>
+      </button>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="popup-recent">
+      <div class="recent-header">
+        <h3>Recent Activity</h3>
+        <button class="clear-button" id="clear-recent">Clear</button>
+      </div>
+      <div class="recent-list" id="recent-list">
+        <!-- Recent items will be populated here -->
+      </div>
+    </div>
+
+    <!-- Settings Quick Access -->
+    <div class="popup-settings">
+      <div class="setting-item">
+        <label class="setting-label">
+          <input type="checkbox" id="show-suggestions" class="setting-checkbox">
+          <span class="setting-text">Show suggestions while typing</span>
+        </label>
+      </div>
+      
+      <div class="setting-item">
+        <label class="setting-label">
+          <input type="checkbox" id="auto-enhance" class="setting-checkbox">
+          <span class="setting-text">Auto-enhance prompts</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <button class="footer-button" id="open-options">
+        <span class="footer-icon">⚙️</span>
+        <span class="footer-text">Settings</span>
+      </button>
+      
+      <button class="footer-button" id="view-help">
+        <span class="footer-icon">❓</span>
+        <span class="footer-text">Help</span>
+      </button>
+      
+      <button class="footer-button" id="report-issue">
+        <span class="footer-icon">🐛</span>
+        <span class="footer-text">Report Issue</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

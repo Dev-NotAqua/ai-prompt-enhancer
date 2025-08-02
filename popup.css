@@ -1,0 +1,544 @@
+/* Popup styles for AI Prompt Enhancer */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  min-height: 500px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #1f2937;
+  background: #ffffff;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Header */
+.popup-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  flex: 1;
+}
+
+.logo-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.logo-subtitle {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.popup-version {
+  font-size: 11px;
+  opacity: 0.7;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* Status Section */
+.popup-status {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-icon {
+  font-size: 12px;
+  color: #10b981;
+}
+
+.status-icon.disabled {
+  color: #ef4444;
+}
+
+.status-icon.warning {
+  color: #f59e0b;
+}
+
+.status-text {
+  flex: 1;
+}
+
+.status-label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.status-value {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  display: none;
+}
+
+.toggle-label {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: #d1d5db;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle-label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle-switch:checked + .toggle-label {
+  background: #4338ca;
+}
+
+.toggle-switch:checked + .toggle-label::after {
+  transform: translateX(20px);
+}
+
+/* Platform Info */
+.popup-platform {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.platform-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.platform-icon {
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.platform-value {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Quick Stats */
+.popup-stats {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4338ca;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Quick Actions */
+.popup-actions {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.action-button.primary {
+  background: #4338ca;
+  color: white;
+}
+
+.action-button.primary:hover {
+  background: #3730a3;
+  transform: translateY(-1px);
+}
+
+.action-button.secondary {
+  background: #f9fafb;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.action-button.secondary:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.action-icon {
+  font-size: 16px;
+}
+
+.action-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Recent Activity */
+.popup-recent {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.recent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.recent-header h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.clear-button {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.clear-button:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.recent-icon {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.recent-text {
+  flex: 1;
+  color: #374151;
+}
+
+.recent-time {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.recent-empty {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 13px;
+  padding: 24px 12px;
+}
+
+/* Settings Quick Access */
+.popup-settings {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.setting-item {
+  margin-bottom: 12px;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.setting-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #374151;
+}
+
+.setting-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 3px;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.setting-checkbox:checked {
+  background: #4338ca;
+  border-color: #4338ca;
+  position: relative;
+}
+
+.setting-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.setting-text {
+  flex: 1;
+}
+
+/* Footer */
+.popup-footer {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #e5e7eb;
+  margin-top: auto;
+}
+
+.footer-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  min-width: 60px;
+}
+
+.footer-button:hover {
+  background: #f3f4f6;
+}
+
+.footer-icon {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.footer-text {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #4338ca;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Error states */
+.error {
+  color: #ef4444;
+}
+
+.error .status-icon {
+  color: #ef4444;
+}
+
+/* Success states */
+.success {
+  color: #10b981;
+}
+
+.success .status-icon {
+  color: #10b981;
+}
+
+/* Responsive adjustments */
+@media (max-width: 320px) {
+  body {
+    width: 320px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .popup-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1f2937;
+    color: #f3f4f6;
+  }
+  
+  .popup-status,
+  .popup-platform,
+  .popup-stats,
+  .popup-actions,
+  .popup-recent,
+  .popup-settings {
+    border-bottom-color: #374151;
+  }
+  
+  .action-button.secondary {
+    background: #374151;
+    color: #f3f4f6;
+    border-color: #4b5563;
+  }
+  
+  .action-button.secondary:hover {
+    background: #4b5563;
+    border-color: #6b7280;
+  }
+  
+  .recent-item {
+    background: #374151;
+  }
+  
+  .platform-icon {
+    background: #374151;
+  }
+  
+  .popup-footer {
+    border-top-color: #374151;
+  }
+  
+  .footer-button:hover {
+    background: #374151;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .action-button,
+  .footer-button {
+    border: 2px solid currentColor;
+  }
+  
+  .toggle-label {
+    border: 2px solid currentColor;
+  }
+}

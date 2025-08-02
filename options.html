@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Prompt Enhancer - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <!-- Header -->
+    <header class="options-header">
+      <div class="header-content">
+        <div class="header-logo">
+          <div class="logo-icon">✨</div>
+          <div class="logo-text">
+            <h1>AI Prompt Enhancer</h1>
+            <p>Advanced Settings & Configuration</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="btn-secondary" id="export-settings">Export Settings</button>
+          <button class="btn-secondary" id="import-settings">Import Settings</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="options-nav">
+      <ul class="nav-tabs">
+        <li class="nav-tab active" data-tab="general">
+          <span class="tab-icon">⚙️</span>
+          <span class="tab-text">General</span>
+        </li>
+        <li class="nav-tab" data-tab="platforms">
+          <span class="tab-icon">🌐</span>
+          <span class="tab-text">Platforms</span>
+        </li>
+        <li class="nav-tab" data-tab="templates">
+          <span class="tab-icon">📝</span>
+          <span class="tab-text">Templates</span>
+        </li>
+        <li class="nav-tab" data-tab="privacy">
+          <span class="tab-icon">🔒</span>
+          <span class="tab-text">Privacy</span>
+        </li>
+        <li class="nav-tab" data-tab="advanced">
+          <span class="tab-icon">🔧</span>
+          <span class="tab-text">Advanced</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="options-main">
+      <!-- General Settings -->
+      <section class="tab-content active" data-content="general">
+        <div class="content-header">
+          <h2>General Settings</h2>
+          <p>Configure basic extension behavior and features</p>
+        </div>
+
+        <div class="settings-section">
+          <h3>Extension Behavior</h3>
+          
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Enable Extension</label>
+              <p class="setting-description">Turn the AI Prompt Enhancer on or off globally</p>
+            </div>
+            <div class="setting-control">
+              <label class="toggle-switch">
+                <input type="checkbox" id="enabled" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Enhancement Mode</label>
+              <p class="setting-description">Control how suggestions are displayed and applied</p>
+            </div>
+            <div class="setting-control">
+              <select id="enhancement-mode" class="setting-select">
+                <option value="automatic">Automatic - Show suggestions automatically</option>
+                <option value="manual">Manual - Show suggestions on request</option>
+                <option value="disabled">Disabled - No suggestions</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Show Suggestions</label>
+              <p class="setting-description">Display enhancement suggestions while typing</p>
+            </div>
+            <div class="setting-control">
+              <label class="toggle-switch">
+                <input type="checkbox" id="show-suggestions" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Auto-apply Templates</label>
+              <p class="setting-description">Automatically apply template suggestions when confidence is high</p>
+            </div>
+            <div class="setting-control">
+              <label class="toggle-switch">
+                <input type="checkbox" id="auto-apply-templates">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>User Interface</h3>
+          
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Theme</label>
+              <p class="setting-description">Choose the extension's visual theme</p>
+            </div>
+            <div class="setting-control">
+              <select id="theme" class="setting-select">
+                <option value="auto">Auto (Match system)</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Keyboard Shortcut</label>
+              <p class="setting-description">Shortcut to trigger enhancement panel</p>
+            </div>
+            <div class="setting-control">
+              <input type="text" id="shortcut-key" class="setting-input" placeholder="Ctrl+Shift+E">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Platform Settings -->
+      <section class="tab-content" data-content="platforms">
+        <div class="content-header">
+          <h2>Platform Configuration</h2>
+          <p>Customize settings for each supported AI platform</p>
+        </div>
+
+        <div class="platforms-grid" id="platforms-grid">
+          <!-- Platform cards will be populated here -->
+        </div>
+      </section>
+
+      <!-- Template Settings -->
+      <section class="tab-content" data-content="templates">
+        <div class="content-header">
+          <h2>Template Management</h2>
+          <p>Manage prompt templates and create custom ones</p>
+        </div>
+
+        <div class="templates-actions">
+          <button class="btn-primary" id="create-template">Create New Template</button>
+          <button class="btn-secondary" id="import-templates">Import Templates</button>
+          <button class="btn-secondary" id="export-templates">Export Templates</button>
+        </div>
+
+        <div class="templates-list" id="templates-list">
+          <!-- Templates will be populated here -->
+        </div>
+      </section>
+
+      <!-- Privacy Settings -->
+      <section class="tab-content" data-content="privacy">
+        <div class="content-header">
+          <h2>Privacy & Security</h2>
+          <p>Control data collection and privacy preferences</p>
+        </div>
+
+        <div class="settings-section">
+          <h3>Data Processing</h3>
+          
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Local Processing Only</label>
+              <p class="setting-description">All prompt analysis happens locally in your browser</p>
+            </div>
+            <div class="setting-control">
+              <label class="toggle-switch">
+                <input type="checkbox" id="local-processing" checked disabled>
+                <span class="toggle-slider"></span>
+              </label>
+              <span class="setting-status">Always On</span>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Store Analytics</label>
+              <p class="setting-description">Store usage analytics locally for feature improvement</p>
+            </div>
+            <div class="setting-control">
+              <label class="toggle-switch">
+                <input type="checkbox" id="store-analytics">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Share Usage Data</label>
+              <p class="setting-description">Share anonymous usage data to help improve the extension</p>
+            </div>
+            <div class="setting-control">
+              <label class="toggle-switch">
+                <input type="checkbox" id="share-usage-data">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="privacy-info">
+          <h3>Privacy Commitment</h3>
+          <ul>
+            <li>All prompt analysis happens locally in your browser</li>
+            <li>No prompts or personal data are sent to external servers</li>
+            <li>Usage analytics are optional and anonymous</li>
+            <li>Your data stays on your device</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Advanced Settings -->
+      <section class="tab-content" data-content="advanced">
+        <div class="content-header">
+          <h2>Advanced Configuration</h2>
+          <p>Fine-tune the extension's behavior and performance</p>
+        </div>
+
+        <div class="settings-section">
+          <h3>Performance</h3>
+          
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Analysis Delay</label>
+              <p class="setting-description">Delay before analyzing typed text (milliseconds)</p>
+            </div>
+            <div class="setting-control">
+              <input type="range" id="analysis-delay" min="100" max="2000" value="300" class="setting-range">
+              <span class="range-value" id="analysis-delay-value">300ms</span>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Minimum Prompt Length</label>
+              <p class="setting-description">Minimum characters before analysis starts</p>
+            </div>
+            <div class="setting-control">
+              <input type="range" id="min-prompt-length" min="5" max="50" value="15" class="setting-range">
+              <span class="range-value" id="min-prompt-length-value">15</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Debug & Development</h3>
+          
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Debug Mode</label>
+              <p class="setting-description">Enable detailed logging for troubleshooting</p>
+            </div>
+            <div class="setting-control">
+              <label class="toggle-switch">
+                <input type="checkbox" id="debug-mode">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label class="setting-label">Reset Settings</label>
+              <p class="setting-description">Reset all settings to default values</p>
+            </div>
+            <div class="setting-control">
+              <button class="btn-danger" id="reset-settings">Reset to Defaults</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="options-footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <p>AI Prompt Enhancer v1.0.0</p>
+          <p>Made with ❤️ for better AI interactions</p>
+        </div>
+        <div class="footer-actions">
+          <button class="btn-primary" id="save-settings">Save Changes</button>
+          <button class="btn-secondary" id="cancel-changes">Cancel</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Hidden file input for imports -->
+  <input type="file" id="file-input" accept=".json" style="display: none;">
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>Loading settings...</p>
+  </div>
+
+  <!-- Template Modal -->
+  <div class="modal" id="template-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create/Edit Template</h3>
+        <button class="modal-close" id="modal-close">×</button>
+      </div>
+      <div class="modal-body">
+        <!-- Template form will be populated here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

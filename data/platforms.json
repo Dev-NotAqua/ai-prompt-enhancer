@@ -1,0 +1,429 @@
+{
+  "chatgpt": {
+    "name": "ChatGPT",
+    "domains": ["chat.openai.com"],
+    "selectors": {
+      "input": [
+        "textarea[data-id]",
+        "#prompt-textarea",
+        "textarea[placeholder*=\"message\"]",
+        "[contenteditable=\"true\"][data-id]",
+        "textarea"
+      ],
+      "textarea": [
+        "textarea[data-id]",
+        "textarea[placeholder*=\"message\"]",
+        "textarea"
+      ],
+      "messages": [
+        "[data-message-author-role]",
+        ".group",
+        "[data-testid*=\"conversation-turn\"]",
+        ".text-base"
+      ],
+      "userMessage": [
+        "[data-message-author-role=\"user\"]",
+        ".bg-gray-50"
+      ],
+      "assistantMessage": [
+        "[data-message-author-role=\"assistant\"]",
+        ".group:not(.bg-gray-50)"
+      ],
+      "sendButton": [
+        "[data-testid=\"send-button\"]",
+        "button[aria-label*=\"Send\"]",
+        "button svg[data-testid=\"send-button\"]"
+      ],
+      "chatContainer": [
+        "main",
+        "[role=\"main\"]",
+        ".conversation-container"
+      ]
+    },
+    "features": {
+      "supportsMarkdown": true,
+      "supportsCodeBlocks": true,
+      "supportsFileUpload": true,
+      "maxPromptLength": 32000,
+      "hasConversationHistory": true,
+      "supportsContinuation": true
+    },
+    "detection": {
+      "urlPatterns": [
+        "https://chat.openai.com/*"
+      ],
+      "requiredElements": [
+        "textarea",
+        "[data-testid=\"send-button\"]"
+      ]
+    },
+    "styling": {
+      "primaryColor": "#10a37f",
+      "backgroundColor": "#ffffff",
+      "textColor": "#343541",
+      "darkMode": {
+        "backgroundColor": "#343541",
+        "textColor": "#ffffff"
+      }
+    }
+  },
+  "claude": {
+    "name": "Claude (Anthropic)",
+    "domains": ["claude.ai"],
+    "selectors": {
+      "input": [
+        "[contenteditable=\"true\"]",
+        "textarea",
+        ".ProseMirror",
+        "[data-testid=\"chat-input\"]"
+      ],
+      "textarea": [
+        "textarea",
+        "[contenteditable=\"true\"]"
+      ],
+      "messages": [
+        "[data-testid*=\"message\"]",
+        ".message",
+        "[data-is-from-user]",
+        ".font-user-message"
+      ],
+      "userMessage": [
+        "[data-is-from-user=\"true\"]",
+        ".human-message",
+        ".user-message"
+      ],
+      "assistantMessage": [
+        "[data-is-from-user=\"false\"]",
+        ".assistant-message",
+        ".claude-message"
+      ],
+      "sendButton": [
+        "button[aria-label*=\"Send\"]",
+        "[data-testid=\"send-button\"]",
+        "button[type=\"submit\"]"
+      ],
+      "chatContainer": [
+        "main",
+        ".chat-container",
+        "[data-testid=\"chat-container\"]"
+      ]
+    },
+    "features": {
+      "supportsMarkdown": true,
+      "supportsCodeBlocks": true,
+      "supportsFileUpload": true,
+      "maxPromptLength": 100000,
+      "hasConversationHistory": true,
+      "supportsContinuation": true,
+      "supportsArtifacts": true
+    },
+    "detection": {
+      "urlPatterns": [
+        "https://claude.ai/*"
+      ],
+      "excludePatterns": [
+        "*/login",
+        "*/auth"
+      ],
+      "requiredElements": [
+        "[contenteditable=\"true\"]"
+      ]
+    },
+    "styling": {
+      "primaryColor": "#cc785c",
+      "backgroundColor": "#ffffff",
+      "textColor": "#1f1f1f",
+      "darkMode": {
+        "backgroundColor": "#1f1f1f",
+        "textColor": "#ffffff"
+      }
+    }
+  },
+  "gemini": {
+    "name": "Gemini (Google)",
+    "domains": ["gemini.google.com", "bard.google.com"],
+    "selectors": {
+      "input": [
+        "[contenteditable=\"true\"]",
+        "textarea",
+        ".ql-editor",
+        "[data-testid=\"input-area\"]"
+      ],
+      "textarea": [
+        "textarea",
+        "[contenteditable=\"true\"]"
+      ],
+      "messages": [
+        "message-content",
+        ".model-response-text",
+        ".conversation-container .response",
+        "[data-testid=\"response\"]"
+      ],
+      "userMessage": [
+        ".user-message",
+        ".human-input",
+        "[data-role=\"user\"]"
+      ],
+      "assistantMessage": [
+        ".model-response",
+        ".assistant-response",
+        "[data-role=\"model\"]"
+      ],
+      "sendButton": [
+        "button[aria-label*=\"Send\"]",
+        "[jsname=\"GgV0Hd\"]",
+        "[data-testid=\"send-button\"]"
+      ],
+      "chatContainer": [
+        "main",
+        ".conversation-container",
+        "[data-testid=\"conversation\"]"
+      ]
+    },
+    "features": {
+      "supportsMarkdown": true,
+      "supportsCodeBlocks": true,
+      "supportsFileUpload": true,
+      "maxPromptLength": 30000,
+      "hasConversationHistory": true,
+      "supportsContinuation": true,
+      "supportsImageInput": true
+    },
+    "detection": {
+      "urlPatterns": [
+        "https://gemini.google.com/*",
+        "https://bard.google.com/*"
+      ],
+      "excludePatterns": [
+        "*/auth"
+      ],
+      "requiredElements": [
+        "[contenteditable=\"true\"]"
+      ]
+    },
+    "styling": {
+      "primaryColor": "#4285f4",
+      "backgroundColor": "#ffffff",
+      "textColor": "#202124",
+      "darkMode": {
+        "backgroundColor": "#202124",
+        "textColor": "#e8eaed"
+      }
+    }
+  },
+  "github": {
+    "name": "GitHub Copilot Chat",
+    "domains": ["github.com"],
+    "selectors": {
+      "input": [
+        "textarea[placeholder*=\"Ask Copilot\"]",
+        "[data-testid=\"copilot-chat-input\"]",
+        ".copilot-chat-input textarea",
+        "#copilot-chat-textarea"
+      ],
+      "textarea": [
+        "textarea"
+      ],
+      "messages": [
+        ".copilot-chat-message",
+        "[data-testid*=\"message\"]",
+        ".copilot-response",
+        ".chat-message"
+      ],
+      "userMessage": [
+        ".user-message",
+        "[data-role=\"user\"]",
+        ".human-message"
+      ],
+      "assistantMessage": [
+        ".assistant-message",
+        "[data-role=\"assistant\"]",
+        ".copilot-message"
+      ],
+      "sendButton": [
+        "button[type=\"submit\"]",
+        "[aria-label*=\"Send\"]",
+        ".copilot-send-button"
+      ],
+      "chatContainer": [
+        ".copilot-chat-container",
+        "#copilot-chat",
+        "[data-testid=\"copilot-chat\"]"
+      ]
+    },
+    "features": {
+      "supportsMarkdown": true,
+      "supportsCodeBlocks": true,
+      "supportsFileUpload": false,
+      "maxPromptLength": 8000,
+      "hasConversationHistory": true,
+      "supportsContinuation": true,
+      "supportsCodeContext": true,
+      "supportsFileReference": true
+    },
+    "detection": {
+      "urlPatterns": [
+        "https://github.com/*"
+      ],
+      "requiresElements": [
+        "textarea[placeholder*=\"Ask Copilot\"]",
+        "[data-testid=\"copilot-chat-input\"]"
+      ],
+      "contextChecks": [
+        "copilot"
+      ]
+    },
+    "styling": {
+      "primaryColor": "#24292f",
+      "backgroundColor": "#ffffff",
+      "textColor": "#24292f",
+      "darkMode": {
+        "backgroundColor": "#0d1117",
+        "textColor": "#f0f6fc"
+      }
+    }
+  },
+  "bing": {
+    "name": "Copilot (Microsoft Bing)",
+    "domains": ["copilot.microsoft.com", "bing.com"],
+    "selectors": {
+      "input": [
+        "textarea[placeholder*=\"Ask me anything\"]",
+        "#searchbox",
+        "[data-testid=\"chat-input\"]",
+        ".bing-chat-input textarea"
+      ],
+      "textarea": [
+        "textarea"
+      ],
+      "messages": [
+        ".ac-textBlock",
+        ".b_msg",
+        "[data-testid=\"chat-message\"]",
+        ".response-message"
+      ],
+      "userMessage": [
+        ".user",
+        "[data-role=\"user\"]",
+        ".human-message"
+      ],
+      "assistantMessage": [
+        ".bot",
+        "[data-role=\"assistant\"]",
+        ".copilot-message"
+      ],
+      "sendButton": [
+        "#submit-button",
+        "[aria-label*=\"Submit\"]",
+        "[data-testid=\"send-button\"]"
+      ],
+      "chatContainer": [
+        "#b_sydConvCont",
+        ".conversation-main",
+        "[data-testid=\"chat-container\"]"
+      ]
+    },
+    "features": {
+      "supportsMarkdown": true,
+      "supportsCodeBlocks": true,
+      "supportsFileUpload": true,
+      "maxPromptLength": 4000,
+      "hasConversationHistory": true,
+      "supportsContinuation": true,
+      "supportsWebSearch": true,
+      "supportsImageGeneration": true
+    },
+    "detection": {
+      "urlPatterns": [
+        "https://copilot.microsoft.com/*",
+        "https://www.bing.com/search*",
+        "https://bing.com/chat*"
+      ],
+      "excludePatterns": [
+        "*/auth"
+      ],
+      "requiredElements": [
+        "textarea"
+      ]
+    },
+    "styling": {
+      "primaryColor": "#0078d4",
+      "backgroundColor": "#ffffff",
+      "textColor": "#323130",
+      "darkMode": {
+        "backgroundColor": "#1e1e1e",
+        "textColor": "#ffffff"
+      }
+    }
+  },
+  "perplexity": {
+    "name": "Perplexity AI",
+    "domains": ["perplexity.ai"],
+    "selectors": {
+      "input": [
+        "textarea[placeholder*=\"Ask anything\"]",
+        "[contenteditable=\"true\"]",
+        "[data-testid=\"search-input\"]",
+        ".search-input textarea"
+      ],
+      "textarea": [
+        "textarea",
+        "[contenteditable=\"true\"]"
+      ],
+      "messages": [
+        ".prose",
+        ".answer",
+        "[data-testid=\"answer\"]",
+        ".response-container"
+      ],
+      "userMessage": [
+        ".user-query",
+        "[data-role=\"user\"]",
+        ".human-message"
+      ],
+      "assistantMessage": [
+        ".answer-content",
+        "[data-role=\"assistant\"]",
+        ".perplexity-response"
+      ],
+      "sendButton": [
+        "button[aria-label*=\"Submit\"]",
+        ".submit-button",
+        "[data-testid=\"submit-button\"]"
+      ],
+      "chatContainer": [
+        ".conversation",
+        "main",
+        "[data-testid=\"conversation\"]"
+      ]
+    },
+    "features": {
+      "supportsMarkdown": true,
+      "supportsCodeBlocks": true,
+      "supportsFileUpload": false,
+      "maxPromptLength": 2000,
+      "hasConversationHistory": true,
+      "supportsContinuation": true,
+      "supportsWebSearch": true,
+      "providesSources": true
+    },
+    "detection": {
+      "urlPatterns": [
+        "https://www.perplexity.ai/*",
+        "https://perplexity.ai/*"
+      ],
+      "requiredElements": [
+        "textarea[placeholder*=\"Ask anything\"]"
+      ]
+    },
+    "styling": {
+      "primaryColor": "#20b2aa",
+      "backgroundColor": "#ffffff",
+      "textColor": "#2d3748",
+      "darkMode": {
+        "backgroundColor": "#1a202c",
+        "textColor": "#e2e8f0"
+      }
+    }
+  }
+}
