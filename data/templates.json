@@ -1,0 +1,246 @@
+{
+  "categories": {
+    "general": [
+      {
+        "id": "general_detailed_request",
+        "name": "Detailed Request",
+        "description": "Comprehensive template for detailed information requests",
+        "category": "general",
+        "priority": 90,
+        "addresses": ["vagueness", "context", "specificity"],
+        "variables": ["topic", "context", "requirements"],
+        "content": "**Context:** {context}\n\n**Request:** Please provide comprehensive information about {topic}.\n\n**Requirements:**\n- {requirements}\n- Include practical examples\n- Explain step-by-step if applicable\n- Provide relevant background information\n\n**Format:** Please organize your response with clear headings and bullet points for easy reading.",
+        "usageCount": 0,
+        "tags": ["detailed", "comprehensive", "structured"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "general_problem_solving",
+        "name": "Problem Solving",
+        "description": "Template for solving specific problems",
+        "category": "general",
+        "priority": 85,
+        "addresses": ["context", "specificity"],
+        "variables": ["problem", "context", "constraints"],
+        "content": "**Problem:** {problem}\n\n**Context:** {context}\n\n**Constraints:** {constraints}\n\n**Request:** Please help me solve this problem by:\n1. Analyzing the situation\n2. Identifying possible solutions\n3. Recommending the best approach\n4. Providing step-by-step implementation guidance\n\n**Expected Outcome:** A practical solution that I can implement immediately.",
+        "usageCount": 0,
+        "tags": ["problem-solving", "analysis", "implementation"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "role_expert_consultant",
+        "name": "Expert Consultant",
+        "description": "Template with expert role definition",
+        "category": "general",
+        "priority": 75,
+        "addresses": ["role", "context"],
+        "variables": ["expertise", "problem", "context"],
+        "content": "Act as an expert consultant with deep expertise in {expertise}.\n\n**Context:** {context}\n\n**Challenge:** {problem}\n\n**Your Mission:** Provide expert-level guidance that demonstrates:\n- Deep understanding of the subject matter\n- Practical, actionable recommendations\n- Industry best practices and standards\n- Potential risks and mitigation strategies\n- Implementation considerations\n\n**Deliverable Style:**\n- Professional and authoritative tone\n- Evidence-based recommendations\n- Clear explanation of reasoning\n- Structured, easy-to-follow format\n\nPlease draw upon your expertise to provide comprehensive guidance that a senior consultant would deliver to an important client.",
+        "usageCount": 0,
+        "tags": ["expert", "consultant", "professional", "authoritative"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "quick_context_boost",
+        "name": "Context Booster",
+        "description": "Quick template to add context",
+        "category": "general",
+        "priority": 60,
+        "addresses": ["context"],
+        "variables": ["original_prompt"],
+        "content": "**Background Context:** I'm working on a project where [describe your situation, role, and goals].\n\n**Specific Challenge:** {original_prompt}\n\n**Additional Context:**\n- My experience level: [beginner/intermediate/advanced]\n- Timeline: [immediate/this week/flexible]\n- Resources available: [time, tools, budget constraints]\n\nPlease provide guidance that takes this context into account.",
+        "usageCount": 0,
+        "tags": ["context", "background", "quick"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "quick_format_specifier",
+        "name": "Format Specifier",
+        "description": "Quick template to specify output format",
+        "category": "general",
+        "priority": 55,
+        "addresses": ["format"],
+        "variables": ["original_prompt"],
+        "content": "{original_prompt}\n\n**Please format your response as:**\n- Clear headings for main sections\n- Bullet points for key information\n- Numbered steps for processes\n- Examples where applicable\n- Summary of key takeaways\n\n**Structure:** Introduction → Main Content → Practical Examples → Summary/Next Steps",
+        "usageCount": 0,
+        "tags": ["format", "structure", "organization"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      }
+    ],
+    "technical": [
+      {
+        "id": "tech_code_help",
+        "name": "Code Help",
+        "description": "Template for programming assistance",
+        "category": "technical",
+        "priority": 95,
+        "addresses": ["context", "specificity", "format"],
+        "variables": ["language", "problem", "environment", "constraints"],
+        "content": "**Programming Language:** {language}\n\n**Environment:** {environment}\n\n**Problem:** {problem}\n\n**Constraints:** {constraints}\n\n**Request:** Please help me with this coding challenge by providing:\n1. Clear explanation of the approach\n2. Well-commented code example\n3. Alternative solutions if applicable\n4. Best practices and potential pitfalls\n5. Testing suggestions\n\n**Code Quality Requirements:**\n- Follow language best practices\n- Include error handling\n- Add meaningful comments\n- Optimize for readability and performance",
+        "usageCount": 0,
+        "tags": ["coding", "programming", "development", "best-practices"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "tech_debugging",
+        "name": "Debugging Help",
+        "description": "Template for debugging assistance",
+        "category": "technical",
+        "priority": 90,
+        "addresses": ["context", "specificity"],
+        "variables": ["issue", "environment", "code", "error"],
+        "content": "**Issue Description:** {issue}\n\n**Environment:**\n- {environment}\n\n**Error Message:** {error}\n\n**Relevant Code:**\n```\n{code}\n```\n\n**Request:** Please help me debug this issue by:\n1. Identifying the root cause\n2. Explaining why this error occurs\n3. Providing the corrected code\n4. Suggesting prevention strategies\n\n**Additional Context:** [Any recent changes, expected behavior, or additional details]",
+        "usageCount": 0,
+        "tags": ["debugging", "troubleshooting", "error-fixing"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "tech_architecture_review",
+        "name": "Architecture Review",
+        "description": "Template for system architecture discussions",
+        "category": "technical",
+        "priority": 80,
+        "addresses": ["context", "specificity"],
+        "variables": ["system", "requirements", "constraints", "scale"],
+        "content": "**System Overview:** {system}\n\n**Requirements:** {requirements}\n\n**Constraints:** {constraints}\n\n**Scale:** {scale}\n\n**Architecture Review Request:** Please provide a comprehensive architecture review including:\n\n**1. Current State Analysis:**\n- Strengths and weaknesses\n- Potential bottlenecks\n- Security considerations\n\n**2. Recommended Improvements:**\n- Design patterns to implement\n- Technology stack optimizations\n- Scalability enhancements\n\n**3. Implementation Roadmap:**\n- Priority order of changes\n- Risk assessment\n- Migration strategies",
+        "usageCount": 0,
+        "tags": ["architecture", "system-design", "scalability"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      }
+    ],
+    "creative": [
+      {
+        "id": "creative_brainstorming",
+        "name": "Creative Brainstorming",
+        "description": "Template for generating creative ideas",
+        "category": "creative",
+        "priority": 80,
+        "addresses": ["context", "format"],
+        "variables": ["topic", "audience", "constraints", "goals"],
+        "content": "**Creative Brief:**\n- **Topic:** {topic}\n- **Target Audience:** {audience}\n- **Goals:** {goals}\n- **Constraints:** {constraints}\n\n**Request:** Please help me brainstorm creative ideas by:\n1. Generating diverse, innovative concepts\n2. Explaining the rationale behind each idea\n3. Considering different perspectives and approaches\n4. Providing implementation suggestions\n\n**Desired Output:**\n- 5-10 unique ideas\n- Brief explanation for each\n- Pros and cons analysis\n- Next steps for development",
+        "usageCount": 0,
+        "tags": ["brainstorming", "creativity", "ideation"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "creative_storytelling",
+        "name": "Story Development",
+        "description": "Template for story and narrative creation",
+        "category": "creative",
+        "priority": 75,
+        "addresses": ["context", "specificity"],
+        "variables": ["genre", "audience", "theme", "length"],
+        "content": "**Story Parameters:**\n- **Genre:** {genre}\n- **Target Audience:** {audience}\n- **Central Theme:** {theme}\n- **Desired Length:** {length}\n\n**Story Development Request:** Please help me develop this story by providing:\n\n**1. Story Structure:**\n- Compelling opening hook\n- Character development arc\n- Plot progression\n- Satisfying resolution\n\n**2. Creative Elements:**\n- Vivid scene descriptions\n- Authentic dialogue\n- Emotional depth\n- Thematic consistency\n\n**3. Writing Guidance:**\n- Pacing recommendations\n- Voice and tone suggestions\n- Potential plot twists or complications",
+        "usageCount": 0,
+        "tags": ["storytelling", "narrative", "character-development"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      }
+    ],
+    "analysis": [
+      {
+        "id": "analysis_data_review",
+        "name": "Data Analysis",
+        "description": "Template for data analysis requests",
+        "category": "analysis",
+        "priority": 85,
+        "addresses": ["context", "specificity", "format"],
+        "variables": ["dataset", "objective", "methodology", "constraints"],
+        "content": "**Analysis Objective:** {objective}\n\n**Dataset Description:** {dataset}\n\n**Methodology Preferences:** {methodology}\n\n**Constraints:** {constraints}\n\n**Request:** Please analyze this data and provide:\n\n**1. Initial Assessment:**\n- Data quality evaluation\n- Key patterns and trends\n- Potential issues or limitations\n\n**2. Detailed Analysis:**\n- Statistical summaries\n- Correlation analysis\n- Trend identification\n- Anomaly detection\n\n**3. Insights and Recommendations:**\n- Key findings\n- Business implications\n- Recommended actions\n- Areas for further investigation\n\n**Deliverables:** Clear visualizations, statistical results, and actionable insights.",
+        "usageCount": 0,
+        "tags": ["data-analysis", "statistics", "insights"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "analysis_comparative",
+        "name": "Comparative Analysis",
+        "description": "Template for comparing options or alternatives",
+        "category": "analysis",
+        "priority": 80,
+        "addresses": ["context", "specificity"],
+        "variables": ["options", "criteria", "context", "decision_goal"],
+        "content": "**Comparison Context:** {context}\n\n**Options to Compare:** {options}\n\n**Evaluation Criteria:** {criteria}\n\n**Decision Goal:** {decision_goal}\n\n**Comparative Analysis Request:** Please provide a comprehensive comparison including:\n\n**1. Option Analysis:**\n- Detailed breakdown of each option\n- Strengths and weaknesses\n- Cost-benefit analysis\n\n**2. Criteria-Based Evaluation:**\n- Score each option against criteria\n- Weight factors by importance\n- Identify trade-offs\n\n**3. Recommendation:**\n- Best option for the given context\n- Risk assessment\n- Implementation considerations\n- Alternative scenarios",
+        "usageCount": 0,
+        "tags": ["comparison", "evaluation", "decision-making"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      }
+    ],
+    "business": [
+      {
+        "id": "business_strategy",
+        "name": "Business Strategy",
+        "description": "Template for business strategy discussions",
+        "category": "business",
+        "priority": 85,
+        "addresses": ["context", "specificity"],
+        "variables": ["situation", "objectives", "constraints", "timeline"],
+        "content": "**Business Situation:** {situation}\n\n**Objectives:** {objectives}\n\n**Constraints:** {constraints}\n\n**Timeline:** {timeline}\n\n**Strategic Request:** Please help me develop a business strategy by addressing:\n\n**1. Situation Analysis:**\n- Current state assessment\n- Market opportunities and threats\n- Internal strengths and weaknesses\n\n**2. Strategic Options:**\n- Multiple strategic approaches\n- Risk assessment for each option\n- Resource requirements\n\n**3. Implementation Plan:**\n- Prioritized action items\n- Timeline and milestones\n- Success metrics\n- Risk mitigation strategies\n\n**Expected Outcome:** A practical, actionable strategy that aligns with our objectives and constraints.",
+        "usageCount": 0,
+        "tags": ["strategy", "business-planning", "implementation"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "business_market_analysis",
+        "name": "Market Analysis",
+        "description": "Template for market research and analysis",
+        "category": "business",
+        "priority": 80,
+        "addresses": ["context", "specificity"],
+        "variables": ["market", "product", "timeframe", "scope"],
+        "content": "**Market Scope:** {market}\n\n**Product/Service:** {product}\n\n**Analysis Timeframe:** {timeframe}\n\n**Geographic Scope:** {scope}\n\n**Market Analysis Request:** Please provide comprehensive market insights including:\n\n**1. Market Overview:**\n- Market size and growth trends\n- Key market segments\n- Regulatory environment\n\n**2. Competitive Landscape:**\n- Major competitors analysis\n- Market positioning\n- Competitive advantages/disadvantages\n\n**3. Opportunities and Threats:**\n- Market opportunities\n- Potential challenges\n- Emerging trends\n\n**4. Strategic Recommendations:**\n- Market entry strategies\n- Positioning recommendations\n- Go-to-market approach",
+        "usageCount": 0,
+        "tags": ["market-research", "competitive-analysis", "opportunities"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      }
+    ],
+    "academic": [
+      {
+        "id": "academic_research",
+        "name": "Research Assistance",
+        "description": "Template for academic research help",
+        "category": "academic",
+        "priority": 85,
+        "addresses": ["context", "specificity", "format"],
+        "variables": ["topic", "scope", "methodology", "sources"],
+        "content": "**Research Topic:** {topic}\n\n**Scope:** {scope}\n\n**Methodology:** {methodology}\n\n**Source Requirements:** {sources}\n\n**Research Request:** Please assist with this research by providing:\n\n**1. Literature Review:**\n- Key theories and concepts\n- Recent developments in the field\n- Gaps in current research\n\n**2. Research Framework:**\n- Suggested methodology\n- Data collection approaches\n- Analysis techniques\n\n**3. Academic Resources:**\n- Relevant academic papers\n- Key authors and experts\n- Important databases and sources\n\n**4. Structure Guidance:**\n- Outline suggestions\n- Key arguments to address\n- Potential counterarguments\n\n**Academic Standards:** Please ensure all suggestions meet academic rigor and citation requirements.",
+        "usageCount": 0,
+        "tags": ["research", "academic", "literature-review", "methodology"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      },
+      {
+        "id": "academic_essay_structure",
+        "name": "Essay Structure",
+        "description": "Template for academic essay planning",
+        "category": "academic",
+        "priority": 75,
+        "addresses": ["structure", "format"],
+        "variables": ["topic", "argument", "length", "sources"],
+        "content": "**Essay Topic:** {topic}\n\n**Central Argument:** {argument}\n\n**Required Length:** {length}\n\n**Source Requirements:** {sources}\n\n**Essay Structure Request:** Please help me structure this academic essay by providing:\n\n**1. Outline Development:**\n- Strong thesis statement\n- Main argument progression\n- Supporting evidence organization\n- Counterargument integration\n\n**2. Section Breakdown:**\n- Introduction strategy\n- Body paragraph structure\n- Transition techniques\n- Conclusion approach\n\n**3. Academic Writing Guidance:**\n- Tone and style recommendations\n- Citation integration\n- Evidence presentation\n- Critical analysis techniques\n\n**4. Quality Assurance:**\n- Argument coherence check\n- Evidence sufficiency\n- Academic standards compliance",
+        "usageCount": 0,
+        "tags": ["essay", "academic-writing", "structure", "arguments"],
+        "createdAt": 1704067200000,
+        "updatedAt": 1704067200000
+      }
+    ]
+  },
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": 1704067200000,
+    "totalTemplates": 17,
+    "categories": ["general", "technical", "creative", "analysis", "business", "academic"]
+  }
+}

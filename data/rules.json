@@ -1,0 +1,338 @@
+{
+  "quality": {
+    "rules": [
+      {
+        "id": "minimum_length",
+        "name": "Minimum Length",
+        "description": "Prompts should be at least 15 characters long",
+        "category": "length",
+        "severity": "high",
+        "pattern": "^.{1,14}$",
+        "type": "regex",
+        "message": "Prompt is too short and may lack necessary detail",
+        "suggestion": "Add more context and specific requirements"
+      },
+      {
+        "id": "maximum_length",
+        "name": "Maximum Length",
+        "description": "Prompts should not exceed platform limits",
+        "category": "length",
+        "severity": "medium",
+        "threshold": 2000,
+        "type": "length",
+        "message": "Prompt is very long and may be overwhelming",
+        "suggestion": "Consider breaking into smaller, focused requests"
+      },
+      {
+        "id": "vague_requests",
+        "name": "Vague Requests",
+        "description": "Detect overly vague or generic prompts",
+        "category": "vagueness",
+        "severity": "high",
+        "patterns": [
+          "^(what|how|why|tell me about|explain)\\s*$",
+          "help me",
+          "tell me",
+          "explain this"
+        ],
+        "type": "regex_list",
+        "message": "Prompt is too vague and generic",
+        "suggestion": "Be more specific about what you want to achieve"
+      },
+      {
+        "id": "missing_context",
+        "name": "Missing Context",
+        "description": "Prompts that lack background context",
+        "category": "context",
+        "severity": "medium",
+        "requiredWords": ["context", "background", "scenario", "situation", "given that"],
+        "minWordCount": 30,
+        "type": "context_check",
+        "message": "Prompt lacks background context",
+        "suggestion": "Provide relevant background information or constraints"
+      },
+      {
+        "id": "no_role_definition",
+        "name": "No Role Definition",
+        "description": "Prompts that don't specify AI role or expertise",
+        "category": "role",
+        "severity": "low",
+        "requiredPhrases": ["act as", "you are", "assume you", "pretend", "role of"],
+        "minWordCount": 50,
+        "type": "role_check",
+        "message": "Could benefit from defining AI role or expertise",
+        "suggestion": "Start with \"Act as a [role]\" or \"You are an expert in [field]\""
+      },
+      {
+        "id": "no_format_specification",
+        "name": "No Format Specification",
+        "description": "Prompts that don't specify desired output format",
+        "category": "format",
+        "severity": "low",
+        "requiredWords": ["format", "structure", "organize", "list", "table", "bullet"],
+        "minWordCount": 40,
+        "type": "format_check",
+        "message": "Output format not specified",
+        "suggestion": "Specify desired format (list, table, paragraphs, etc.)"
+      },
+      {
+        "id": "general_requests",
+        "name": "General Requests",
+        "description": "Requests that use general terms instead of specific ones",
+        "category": "specificity",
+        "severity": "medium",
+        "patterns": [
+          "(general|basic|simple|quick|brief)\\s+(help|info|explanation)"
+        ],
+        "type": "regex_list",
+        "message": "Request is too general",
+        "suggestion": "Replace general terms with specific requirements"
+      }
+    ]
+  },
+  "enhancement": {
+    "rules": [
+      {
+        "id": "add_context_prefix",
+        "name": "Context Addition",
+        "description": "Add context to prompts that lack background information",
+        "category": "context",
+        "trigger": "missing_context",
+        "template": "Context: I'm working on {domain} and need {objective}. {original_prompt}",
+        "variables": ["domain", "objective"],
+        "priority": 80
+      },
+      {
+        "id": "add_role_prefix",
+        "name": "Role Definition",
+        "description": "Add expert role definition to prompts",
+        "category": "role",
+        "trigger": "no_role_definition",
+        "template": "Act as {role}. {original_prompt}",
+        "variables": ["role"],
+        "priority": 70,
+        "auto_inference": true
+      },
+      {
+        "id": "add_format_suffix",
+        "name": "Format Specification",
+        "description": "Add output format requirements",
+        "category": "format",
+        "trigger": "no_format_specification",
+        "template": "{original_prompt}\n\nPlease format your response as {format}.",
+        "variables": ["format"],
+        "priority": 60,
+        "default_format": "clear, well-structured information with headings and bullet points"
+      },
+      {
+        "id": "enhance_specificity",
+        "name": "Specificity Enhancement",
+        "description": "Replace general terms with more specific ones",
+        "category": "specificity",
+        "trigger": "general_requests",
+        "replacements": {
+          "help": "provide detailed guidance on",
+          "info": "comprehensive information about",
+          "explain": "explain in detail with examples",
+          "how": "what are the step-by-step instructions for",
+          "what": "what specifically",
+          "general": "specific and detailed",
+          "basic": "comprehensive",
+          "simple": "detailed yet clear"
+        },
+        "priority": 65
+      },
+      {
+        "id": "structure_improvement",
+        "name": "Structure Enhancement",
+        "description": "Improve prompt organization and structure",
+        "category": "structure",
+        "trigger": "long_unstructured",
+        "template": "**Context:** {context}\n\n**Request:** {request}\n\n**Requirements:** {requirements}",
+        "priority": 55
+      }
+    ]
+  },
+  "analysis": {
+    "metrics": [
+      {
+        "id": "word_count",
+        "name": "Word Count",
+        "description": "Count of words in the prompt",
+        "category": "length",
+        "optimal_range": [20, 200],
+        "warning_threshold": 300,
+        "error_threshold": 500
+      },
+      {
+        "id": "character_count",
+        "name": "Character Count",
+        "description": "Count of characters in the prompt",
+        "category": "length",
+        "optimal_range": [50, 1000],
+        "warning_threshold": 1500,
+        "error_threshold": 2000
+      },
+      {
+        "id": "sentence_count",
+        "name": "Sentence Count",
+        "description": "Number of sentences in the prompt",
+        "category": "structure",
+        "optimal_range": [2, 8],
+        "warning_threshold": 12,
+        "error_threshold": 20
+      },
+      {
+        "id": "readability_score",
+        "name": "Readability Score",
+        "description": "Flesch Reading Ease score",
+        "category": "readability",
+        "optimal_range": [60, 90],
+        "warning_threshold": 40,
+        "error_threshold": 20
+      },
+      {
+        "id": "complexity_score",
+        "name": "Complexity Score",
+        "description": "Technical complexity assessment",
+        "category": "complexity",
+        "optimal_range": [20, 60],
+        "warning_threshold": 80,
+        "error_threshold": 95
+      },
+      {
+        "id": "specificity_score",
+        "name": "Specificity Score",
+        "description": "How specific and detailed the prompt is",
+        "category": "specificity",
+        "optimal_range": [40, 80],
+        "warning_threshold": 25,
+        "error_threshold": 15
+      }
+    ]
+  },
+  "patterns": {
+    "positive_indicators": [
+      {
+        "pattern": "\\b(specific|detailed|comprehensive|thorough|in-depth)\\b",
+        "weight": 10,
+        "category": "specificity"
+      },
+      {
+        "pattern": "\\b(context|background|scenario|situation)\\b",
+        "weight": 8,
+        "category": "context"
+      },
+      {
+        "pattern": "\\b(act as|you are|assume you|expert in)\\b",
+        "weight": 7,
+        "category": "role"
+      },
+      {
+        "pattern": "\\b(format|structure|organize|list|table)\\b",
+        "weight": 6,
+        "category": "format"
+      },
+      {
+        "pattern": "\\b(example|sample|instance|demonstrate)\\b",
+        "weight": 8,
+        "category": "examples"
+      },
+      {
+        "pattern": "\\b(step-by-step|process|methodology|approach)\\b",
+        "weight": 9,
+        "category": "methodology"
+      }
+    ],
+    "negative_indicators": [
+      {
+        "pattern": "^(what|how|why|tell me|explain)\\s*$",
+        "weight": -15,
+        "category": "vagueness"
+      },
+      {
+        "pattern": "\\b(general|basic|simple|quick|brief)\\s+(help|info)\\b",
+        "weight": -10,
+        "category": "generality"
+      },
+      {
+        "pattern": "^.{1,10}$",
+        "weight": -20,
+        "category": "length"
+      },
+      {
+        "pattern": "\\b(can't|won't|doesn't work|broken)\\b",
+        "weight": -5,
+        "category": "negativity"
+      }
+    ]
+  },
+  "categories": {
+    "question": {
+      "patterns": [
+        "^(what|how|why|when|where|who|which|can you|could you|would you)"
+      ],
+      "enhancement_focus": ["context", "specificity"],
+      "suggested_templates": ["general_detailed_request", "quick_context_boost"]
+    },
+    "instruction": {
+      "patterns": [
+        "^(write|create|generate|make|build|design|develop)"
+      ],
+      "enhancement_focus": ["requirements", "format"],
+      "suggested_templates": ["general_problem_solving", "quick_format_specifier"]
+    },
+    "analysis": {
+      "patterns": [
+        "^(analyze|compare|evaluate|assess|review|examine)"
+      ],
+      "enhancement_focus": ["methodology", "criteria"],
+      "suggested_templates": ["analysis_data_review", "analysis_comparative"]
+    },
+    "explanation": {
+      "patterns": [
+        "^(explain|describe|tell me|clarify)"
+      ],
+      "enhancement_focus": ["context", "examples"],
+      "suggested_templates": ["academic_research", "general_detailed_request"]
+    },
+    "technical": {
+      "indicators": ["code", "programming", "algorithm", "API", "framework"],
+      "enhancement_focus": ["environment", "specifications"],
+      "suggested_templates": ["tech_code_help", "tech_debugging"]
+    },
+    "creative": {
+      "indicators": ["create", "design", "brainstorm", "innovative", "original"],
+      "enhancement_focus": ["constraints", "audience"],
+      "suggested_templates": ["creative_brainstorming", "creative_storytelling"]
+    },
+    "business": {
+      "indicators": ["strategy", "market", "business", "revenue", "customers"],
+      "enhancement_focus": ["objectives", "constraints"],
+      "suggested_templates": ["business_strategy", "business_market_analysis"]
+    }
+  },
+  "scoring": {
+    "weights": {
+      "length": 0.2,
+      "specificity": 0.25,
+      "context": 0.2,
+      "structure": 0.15,
+      "clarity": 0.2
+    },
+    "penalties": {
+      "too_short": -30,
+      "too_long": -15,
+      "too_vague": -25,
+      "no_context": -20,
+      "poor_structure": -10
+    },
+    "bonuses": {
+      "well_structured": 15,
+      "specific_requirements": 20,
+      "clear_context": 15,
+      "defined_role": 10,
+      "specified_format": 10
+    }
+  }
+}

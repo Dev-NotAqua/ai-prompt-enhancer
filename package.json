@@ -1,0 +1,176 @@
+{
+  "name": "ai-prompt-enhancer",
+  "version": "1.0.0",
+  "description": "Universal browser extension that intelligently enhances prompts for AI chatbot platforms",
+  "main": "background.js",
+  "scripts": {
+    "dev": "npm run watch",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:css": "chokidar \"src/**/*.css\" -c \"npm run build:css\"",
+    "watch:js": "chokidar \"src/**/*.js\" -c \"npm run lint:js\"",
+    "build": "npm run lint && npm run build:css && npm run build:extension",
+    "build:css": "echo 'CSS build complete'",
+    "build:extension": "npm run build:zip",
+    "build:zip": "node scripts/build.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint src/ *.js --ext .js --fix",
+    "lint:css": "stylelint \"src/**/*.css\" --fix",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest",
+    "test:integration": "node scripts/test-integration.js",
+    "validate": "npm run validate:manifest && npm run validate:templates",
+    "validate:manifest": "node scripts/validate-manifest.js",
+    "validate:templates": "node scripts/validate-templates.js",
+    "clean": "rimraf dist/ coverage/ *.zip",
+    "format": "prettier --write \"src/**/*.{js,css}\" \"*.{js,json,md}\"",
+    "check": "npm run lint && npm run validate && npm run test",
+    "serve": "http-server . -p 8080 -c-1",
+    "docs": "jsdoc src/ -d docs/",
+    "prepare": "husky install || true"
+  },
+  "keywords": [
+    "ai",
+    "prompt",
+    "enhancement",
+    "chatgpt",
+    "claude",
+    "gemini",
+    "browser-extension",
+    "productivity",
+    "writing-assistant"
+  ],
+  "author": "Aqua",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dev-NotAqua/ai-prompt-enhancer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dev-NotAqua/ai-prompt-enhancer/issues"
+  },
+  "homepage": "https://github.com/Dev-NotAqua/ai-prompt-enhancer#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.0.254",
+    "chokidar-cli": "^3.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-mozilla": "^3.7.0",
+    "eslint-plugin-webextensions": "^0.8.0",
+    "http-server": "^14.1.1",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "jsdoc": "^4.0.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.5",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0",
+    "web-ext": "^7.10.0",
+    "zip-webpack-plugin": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 88",
+    "Firefox >= 91",
+    "Safari >= 14",
+    "Edge >= 88"
+  ],
+  "manifest": {
+    "version": 3,
+    "permissions": [
+      "storage",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "https://chat.openai.com/*",
+      "https://claude.ai/*",
+      "https://gemini.google.com/*",
+      "https://bard.google.com/*",
+      "https://copilot.microsoft.com/*",
+      "https://www.perplexity.ai/*",
+      "https://github.com/*"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "*.js",
+      "!src/**/*.test.js",
+      "!scripts/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "webextensions": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:mozilla/recommended",
+      "plugin:webextensions/recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    },
+    "globals": {
+      "chrome": "readonly",
+      "browser": "readonly"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "error",
+      "prefer-const": "error",
+      "no-var": "error",
+      "mozilla/avoid-removeChild": "warn",
+      "webextensions/avoid-browser-apis-in-content-scripts": "error"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "custom-property-empty-line-before": null,
+      "declaration-empty-line-before": null,
+      "rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "first-nested"
+          ]
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run check"
+    }
+  }
+}
